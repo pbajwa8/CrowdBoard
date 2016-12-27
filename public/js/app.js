@@ -1,1 +1,1 @@
-angular.module('CrowdBoard', ['ngRoute', 'firebase', 'appRoutes', 'HomeCtrl']);
+angular.module('CrowdBoard', ['ngRoute', 'firebase', 'appRoutes', 'HomeCtrl', 'VotingCtrl', 'ResultsService', 'ResultsCtrl', 'angular-jqcloud']);

@@ -15,6 +15,7 @@
 
 	<link rel="stylesheet" type="text/css" href="libs/bootstrap-material-design/dist/css/bootstrap-material-design.css">
   	<link rel="stylesheet" type="text/css" href="libs/bootstrap-material-design/dist/css/ripples.min.css">
+  	<link rel="stylesheet" type="text/css" href="libs/jqcloud2/dist/jqcloud.min.css">
 	
 	<!-- JS -->
 
@@ -36,11 +37,21 @@
 	<script src="libs/angularfire/dist/angularfire.min.js"></script>
 	<script src="libs/jquery/dist/jquery.min.js"></script>
 	<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="libs/jribbble/dist/jribbble.min.js"></script>
+	<script src="libs/jqcloud2/dist/jqcloud.min.js"></script>
+	<script src="libs/angular-jqcloud/angular-jqcloud.js"></script>
+
+	<script>
+		$.jribbble.setToken('35462e6cd36d48e1c9298d768eb65e835ded2895e919c6486b30e1ef0b893918');
+	</script
 
 	<!-- ANGULAR CUSTOM -->
 	<script src="js/app.js"></script>
 	<script src="js/appRoutes.js"></script>
 	<script src="js/controllers/HomeCtrl.js"></script>
+	<script src="js/controllers/VotingCtrl.js"></script>
+	<script src="js/controllers/ResultsCtrl.js"></script>
+	<script src="js/services/ResultsService.js"></script>
 
 </head>
 <body ng-app="CrowdBoard">

@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+	<div class="panel-body text-center">
+		<h2>{{upCount}} / 10</h2>
+		<img ng-src="{{imageURL}}" height="{{imageHeight}}" width="{{imageWidth}}"> </img>
+		<div class="row">
+			<div class="col-md-offset-4 col-md-2 text-center">
+				<button class="btn btn-raised btn-danger" ng-click="nextImage()">Down</button>
+			</div>
+			<div class="col-md-2 text-center">
+				<button class="btn btn-raised btn-success" ng-click="rateUp()">Up</button>
+			</div>
+		</div>
+	</div>
+</div>

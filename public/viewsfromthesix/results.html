@@ -1,0 +1,7 @@
+<div class="center-block">
+	<jqcloud words="words" steps="20" id="cloud-dynamic" auto-resize="true" font-size="{from:0.09, to:0.04}"></jqcloud>
+</div>
+
+<div class="center-block">
+	<img ng-repeat="image in imagesArray" ng-src="{{image.images.hidpi || image.images.normal}}" width="25%"></img>
+</div>
