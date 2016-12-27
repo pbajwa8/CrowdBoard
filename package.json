@@ -1,0 +1,10 @@
+{
+  "name": "CrowdBoard",
+  "main": "server.js",
+  "dependencies": {
+    "angularfire": "^2.2.0",
+    "body-parser": "~1.4.2",
+    "express": "~4.5.1",
+    "method-override": "~2.0.2"
+  }
+}

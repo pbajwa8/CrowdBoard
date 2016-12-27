@@ -1,0 +1,1 @@
+angular.module('CrowdBoard', ['ngRoute', 'firebase', 'appRoutes', 'HomeCtrl']);
