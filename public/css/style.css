@@ -2,3 +2,4 @@ body { padding-top:30px; }
 #cloud-dynamic { width: 100%; height: 200px; padding-bottom: 20px }
 #thumb-up { color: rgba(46, 204, 113,1.0); padding-top: 10px; cursor: pointer;}
 #thumb-down { color: rgba(210, 77, 87, 1); padding-top: 10px; cursor: pointer;}
+#clickable {cursor: pointer;}

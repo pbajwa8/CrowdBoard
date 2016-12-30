@@ -3,7 +3,7 @@
 </div>
 
 <div class="center-block" ng-hide="imageClicked">
-	<img ng-repeat="image in images" ng-src="{{image.images.hidpi || image.images.normal}}" width="25%" ng-click="clicked(image.images.hidpi || image.images.normal)" data-toggle="modal" data-target="#imageModal"></img>
+	<img ng-repeat="image in images" ng-src="{{image.images.hidpi || image.images.normal}}" width="25%" ng-click="clicked(image.images.hidpi || image.images.normal)" data-toggle="modal" data-target="#imageModal" id="clickable"></img>
 </div>
 
 <div class="modal fade" id="imageModal" tabindex="-1" role="dialog">
