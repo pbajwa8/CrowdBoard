@@ -2,12 +2,12 @@ angular.module('ResultsService', []).factory('Results', function($q, $http, $fir
 
 	var rootResultsRef = firebase.database().ref("results")
 
-	var saveResults = function(upImages) {
+	var saveResults = function(upImages, tags) {
 
 		var deferred = $q.defer();
 
 		var resultId = rootResultsRef.push().key;
-		var resultObj = {"upImages": upImages, "images": -1}
+		var resultObj = {"upImages": upImages, "images": -1, tags: tags}
 
 		rootResultsRef.child(resultId).update(resultObj).catch(function(error){
 			deferred.reject(error);
@@ -30,9 +30,10 @@ angular.module('ResultsService', []).factory('Results', function($q, $http, $fir
 				if (i == upImages.length) {
 					rootResultsRef.child(resultId).child("images").set(images).catch(function(error){
 						console.error(error);
-					}).then(function(data) {
-						console.log("success");
 					})
+					// .then(function(data) {
+			
+					// })
 				}
 			});
 		}

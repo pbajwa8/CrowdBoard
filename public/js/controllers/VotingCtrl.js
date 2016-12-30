@@ -7,19 +7,18 @@ angular.module('VotingCtrl', []).controller('VotingController', function($scope,
 	$scope.imageWidth;
 	$scope.upCount = 0;
 	$scope.upImages = [];
+	$scope.tags = [];
 
-	$.jribbble.shots('playoffs', {'sorted': 'recent','per_page': 125}).then(function(res) {
+	$.jribbble.shots('playoffs', {'sorted': 'recent','per_page': 100}).then(function(res) {
 
 		for (i = 0; i < res.length; i++) {
-			$scope.optionsArray.push({image: res[i].images.hidpi || res[i].images.normal, height: res[i].height, width: 
-				res[i].width, id: res[i].id, tags: res[i].tags})
+			$scope.optionsArray.push({image: res[i].images.hidpi || res[i].images.normal, id: res[i].id, tags: res[i].tags})
 		}
 
 		shuffle($scope.optionsArray);
 
 		$scope.imageURL = $scope.optionsArray[$scope.count].image;
-		$scope.imageWidth = $scope.optionsArray[$scope.count].width;
-		$scope.imageHeight = $scope.optionsArray[$scope.count].height;
+		
 		$scope.$apply();
 
 	});
@@ -29,9 +28,13 @@ angular.module('VotingCtrl', []).controller('VotingController', function($scope,
 		$scope.upCount++;
 		$scope.upImages.push($scope.optionsArray[$scope.count]);
 
+		for (i in $scope.optionsArray[$scope.count].tags) {
+			$scope.tags.push({"text": $scope.optionsArray[$scope.count].tags[i],
+			 "weight": Math.floor(Math.random() * 10) + 1  })
+		}
+
 		if ($scope.upImages.length == 10) {
-			Results.saveResults($scope.upImages).then(function(id) {
-				console.log("done");
+			Results.saveResults($scope.upImages, $scope.tags).then(function(id) {
 				$location.path('/results/' + id);
 			})
 		};
@@ -41,9 +44,11 @@ angular.module('VotingCtrl', []).controller('VotingController', function($scope,
 
 	$scope.nextImage = function() {
 		$scope.count++;
-		$scope.imageURL = $scope.optionsArray[$scope.count].image;
-		$scope.imageHeight = $scope.optionsArray[$scope.count].height;
-		$scope.imageWidth = $scope.optionsArray[$scope.count].width;	
+		if ($scope.count > 99) {
+			$scope.count = 0;
+		}
+	
+		$scope.imageURL = $scope.optionsArray[$scope.count].image;	
 	}
 
 	function shuffle(a) {
