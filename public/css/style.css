@@ -3,3 +3,25 @@ body { padding-top:30px; }
 #thumb-up { color: rgba(46, 204, 113,1.0); padding-top: 10px; cursor: pointer;}
 #thumb-down { color: rgba(210, 77, 87, 1); padding-top: 10px; cursor: pointer;}
 #clickable {cursor: pointer;}
+
+/*.greenBg-add, .greenBg-remove,
+.redBg-add, .redBg-remove,
+.whiteBg-add, .whiteBg-remove {
+  transition: background-color 1000ms linear;
+}*/
+
+.greenBg, .whiteBg, .redBg {
+	transition: background-color 350ms linear;
+}
+
+.greenBg {
+	background-color: #27ae60;
+}
+
+.redBg {
+	background-color: #e74c3c;
+}
+
+.whiteBg {
+	background-color: #ffffff;
+}

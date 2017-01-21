@@ -1,15 +1,15 @@
 <div class="panel panel-default">
-	<div class="panel-body text-center">
+	<div class="panel-body text-center" ng-class="colorVal">
 		<h2> {{upCount}} / 10</h2>
-		
-		<img ng-src="{{imageURL}}" height="300px" width="400px"> </img>
+
+		<img ng-src="{{imageURL}}" id="voteImage" height="300" width="400px"> </img>
 		
 		<div class="row">
 			<div class="col-xs-offset-4 col-xs-2 text-center">
-				<i class="material-icons" ng-click="nextImage()" id="thumb-down">thumb_down</i>
+				<i class="material-icons" ng-click="advanceImage('down')" id="thumb-down">thumb_down</i>
 			</div>
 			<div class="col-xs-2 text-center">
-				<i class="material-icons" ng-click="rateUp()" id="thumb-up">thumb_up</i>
+				<i class="material-icons" ng-click="advanceImage('up')" id="thumb-up">thumb_up</i>
 			</div>
 		</div>
 	</div>

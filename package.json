@@ -2,6 +2,9 @@
   "name": "CrowdBoard",
   "main": "server.js",
   "dependencies": {
+    "angular": "latest",
+    "angular-animate": "^1.5.7",
+    "angular-aria": "1.5.9",
     "angularfire": "^2.2.0",
     "body-parser": "~1.4.2",
     "express": "~4.5.1",

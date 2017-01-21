@@ -1,4 +1,4 @@
-angular.module('VotingCtrl', []).controller('VotingController', function($scope, $location, Results) {
+angular.module('VotingCtrl', []).controller('VotingController', function($scope, $location, Results, $animate, $timeout) {
 
 	$scope.imageURL;
 	$scope.optionsArray = [];
@@ -8,6 +8,7 @@ angular.module('VotingCtrl', []).controller('VotingController', function($scope,
 	$scope.upCount = 0;
 	$scope.upImages = [];
 	$scope.tags = [];
+	$scope.colorVal = "whiteBg";
 
 	$.jribbble.shots('playoffs', {'sorted': 'recent','per_page': 100}).then(function(res) {
 
@@ -23,6 +24,17 @@ angular.module('VotingCtrl', []).controller('VotingController', function($scope,
 
 	});
 
+	$scope.advanceImage = function(result) {
+		if (result == "up") {
+			$scope.colorVal = "greenBg";
+			$scope.rateUp()
+		} else {
+			$scope.colorVal = "redBg";
+			$scope.nextImage()
+		}
+	}
+
+	
 	$scope.rateUp = function() {
 
 		$scope.upCount++;
@@ -43,12 +55,20 @@ angular.module('VotingCtrl', []).controller('VotingController', function($scope,
 	}
 
 	$scope.nextImage = function() {
+
 		$scope.count++;
+
 		if ($scope.count > 99) {
 			$scope.count = 0;
 		}
 	
-		$scope.imageURL = $scope.optionsArray[$scope.count].image;	
+		$scope.imageURL = $scope.optionsArray[$scope.count].image;
+
+		$timeout(function(){
+			$scope.colorVal = "whiteBg";
+		}, 700)
+
+
 	}
 
 	function shuffle(a) {
